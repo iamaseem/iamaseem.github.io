@@ -1,0 +1,23 @@
+---
+interface Props {
+    progress: number
+}
+const {progress} = Astro.props
+---
+<div class="w-2/3 h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700 inline-block">
+    <div class="flex
+            flex-col
+            justify-center
+            overflow-hidden
+            bg-blue-500
+            text-xs
+            text-white
+            text-center"
+        role="progressbar"
+        style=`width: ${progress}%`
+        aria-valuenow=`${progress}`
+        ria-valuemin="0"
+        aria-valuemax="100">
+        {progress}%
+    </div>
+</div>

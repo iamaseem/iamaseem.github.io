@@ -1,4 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
 @tailwind base;
+
+/* @font-face {
+	font-family: 'Nabla';
+	src: url('/fonts/Nabla-Regular.ttf') format('ttf');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+} */
 
 @layer base {
 	:root {

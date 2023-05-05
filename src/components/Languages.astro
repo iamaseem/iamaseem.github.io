@@ -1,0 +1,21 @@
+---
+import ProgressBar from "@/components/ProgressBar";
+import { LANGUAGES } from "@/data/constants";
+---
+
+<h2 class="title mb-4 text-xl">Languages</h2>
+<ul class="space-y-4 sm:space-y-2 justify-between">
+    {
+        LANGUAGES.map((languages) => (
+        <li class="flex flex-nowrap items-center my-4 justify-between">
+            <a
+                href=`${languages.link}`
+                rel="noopener noreferrer"
+                class="cactus-link inline-block"
+                >{languages.name}
+            </a>
+            <ProgressBar progress={languages.progress}/>
+        </li>
+        ))
+    }
+</ul>

@@ -4,6 +4,8 @@ import PageLayout from "@/layouts/Base";
 import PostPreview from "@/components/blog/PostPreview";
 import SocialList from "@/components/SocialList";
 import { sortMDByDate } from "@/utils";
+import SkillSection from "@/components/SkillSection";
+import Languages from "@/components/Languages";
 
 const MAX_POSTS = 10;
 const allPosts = await getCollection("post");
@@ -12,11 +14,9 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-		<h1 class="title mb-6">Hello World!</h1>
+		<h1 class="title mb-6">Welcome👋</h1>
 		<p class="mb-4">
-			Hi, I’m a theme for Astro, an example of how you can use this starter to create a personal
-			blog. If you want to know more about how you can customise me, add more posts, and make it
-			your own, click on one the github icon link below which will take you to my repo.
+			Hi, I’m Aseem, A software developer based on India. 
 		</p>
 		<SocialList />
 	</section>
@@ -33,8 +33,9 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 		</ul>
 	</section>
 	<section class="mt-16">
-		<h2 class="title mb-4 text-xl">Technologies</h2>
-		<ul class="space-y-4 sm:space-y-2">
+		<Languages />
+		<SkillSection />
+		<!-- <ul class="space-y-4 sm:space-y-2">
 			<li>
 				<a
 					href="https://astro.build"
@@ -79,7 +80,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 				</a>:
 				<p class="inline-block sm:mt-2">Simple and easy-to-use markup language.</p>
 			</li>
-			<li>
+			<li class="flex flex-nowrap items-center">
 				<a
 					href="https://mdxjs.com/"
 					target="_blank"
@@ -88,6 +89,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 					>MDX
 				</a>:
 				<p class="inline-block sm:mt-2">Markdown for the component era.</p>
+				<ProgressBar progress={20}/>
 			</li>
 			<li>
 				<a
@@ -99,6 +101,6 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 				</a>:
 				<p class="inline-block sm:mt-2">Generating png Open Graph images for blog posts</p>
 			</li>
-		</ul>
+		</ul> -->
 	</section>
 </PageLayout>
