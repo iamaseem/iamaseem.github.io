@@ -25,12 +25,12 @@ export const SKILL_LIST = [
 	{
 		name: "NextJS",
 		link: "/tags/nextjs",
-		progress: 25,
+		progress: 75,
 	},
 	{
 		name: "ReactJS",
 		link: "/tags/reactjs",
-		progress: 95,
+		progress: 75,
 	},
 ];
 
