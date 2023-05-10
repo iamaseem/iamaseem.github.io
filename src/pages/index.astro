@@ -14,7 +14,10 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-		<h1 class="title mb-6">Welcome👋</h1>
+		<div class="inline-flex title group">
+			<h1 class="mb-6">Welcome</h1>
+			<span class="group-hover:animate-wiggle ml-1">👋</span>
+		</div>
 		<p class="mb-4">
 			Hi, I’m Aseem, A software developer based on India. 
 		</p>

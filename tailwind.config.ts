@@ -94,6 +94,15 @@ export default {
 					},
 				},
 			}),
+			animation: {
+				wiggle: "wiggle 500ms ease-in-out infinite",
+			},
+			keyframes: {
+				wiggle: {
+					"0%, 100%": { transform: "rotate(-5deg)" },
+					"50%": { transform: "rotate(5deg)" },
+				},
+			},
 		},
 	},
 	plugins: [
