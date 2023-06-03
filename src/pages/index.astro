@@ -6,6 +6,7 @@ import SocialList from "@/components/SocialList";
 import { sortMDByDate } from "@/utils";
 import SkillSection from "@/components/SkillSection";
 import Languages from "@/components/Languages";
+import CodeSnippet from "@/components/CodeSnippet";
 
 const MAX_POSTS = 10;
 const allPosts = await getCollection("post");
@@ -14,13 +15,11 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-		<div class="inline-flex title group">
+		<div class="group title inline-flex">
 			<h1 class="mb-6">Welcome</h1>
-			<span class="group-hover:animate-wiggle ml-1">👋</span>
+			<span class="ml-1 group-hover:animate-wiggle">👋</span>
 		</div>
-		<p class="mb-4">
-			Hi, I’m Aseem, A software developer based on India. 
-		</p>
+		<p class="mb-4">Hi, I’m Aseem, A software developer based on India.</p>
 		<SocialList />
 	</section>
 	<section aria-label="Blog post list" class="mt-16">
@@ -38,6 +37,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 	<section class="mt-16">
 		<Languages />
 		<SkillSection />
+		<!-- <CodeSnippet /> -->
 		<!-- <ul class="space-y-4 sm:space-y-2">
 			<li>
 				<a

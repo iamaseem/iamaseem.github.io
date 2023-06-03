@@ -1,0 +1,24 @@
+---
+import { Image } from "@astrojs/image/components";
+import python from "../assets/languages/python.svg";
+import cpp from "../assets/languages/cpp.svg";
+import golang from "../assets/languages/golang.svg";
+import java from "../assets/languages/java.svg";
+import js from "../assets/languages/js.svg";
+import rust from "../assets/languages/rust.svg";
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<div class="overflow-hidden rounded-md border border-gray-500 bg-slate-700 p-1.5">
+	<div class="text-white">{title}</div>
+	<div class="text-gray-400">{description}</div>
+	<div class="inline">
+		<img src="../assets/languages/python.svg" alt="A rocketship in space." />
+	</div>
+</div>

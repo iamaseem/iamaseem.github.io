@@ -1,15 +1,15 @@
 export const MENU_LINKS = [
 	{
 		title: "Home",
-		path: "/astro-cactus-blog/",
+		path: "/",
 	},
-	// {
-	// 	title: "About",
-	// 	path: "/astro-cactus-blog/about",
-	// },
+	{
+		title: "About",
+		path: "/about",
+	},
 	{
 		title: "Blog",
-		path: "/astro-cactus-blog/posts",
+		path: "/posts",
 	},
 ];
 
