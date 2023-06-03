@@ -7,8 +7,8 @@ import prefetch from "@astrojs/prefetch";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://iamaseem.github.io/",
-	base: "/iamaseem.github.io",
+	site: "https://iamaseem.github.io",
+	base: "/",
 	markdown: {
 		shikiConfig: {
 			theme: "dracula",
