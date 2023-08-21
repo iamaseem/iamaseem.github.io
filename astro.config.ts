@@ -23,7 +23,13 @@ export default defineConfig({
 		}
 	}), image({
 		serviceEntryPoint: "@astrojs/image/sharp"
-	}), sitemap(), prefetch(), partytown()],
+	}), sitemap(), prefetch(),
+	partytown({
+		config: {
+			forward: ["dataLayer.push"]
+		},
+	}),
+	],
 	vite: {
 		optimizeDeps: {
 			exclude: ["@resvg/resvg-js"]
