@@ -23,6 +23,7 @@ export const SOCIAL_LINKS = {
 	twitter: "https://twitter.com/AseemmuhammadR",
 	linkedin: "https://www.linkedin.com/in/iamaseem/",
 	email: "aseem.offi@gmail.com",
+	rss: "https://iamaseem.github.io/rss.xml"
 };
 
 export const SKILL_LIST = [
