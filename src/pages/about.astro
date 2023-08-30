@@ -2,21 +2,12 @@
 import PageLayout from "@/layouts/Base";
 import aboutImg from "../assets/about-astro.png";
 import proPic from "../assets/new_profile.jpg";
+import CodeSnippet from "@/components/CodeSnippetCard"
 
 const meta = {
 	title: "About",
 	description: "I'm a starter theme for Astro.build",
 };
-const doc_id = "8fb0cc141b4c4d85bcd3db1f82c42eef";
-const api_key = "secret_IbUxXUOdA8iTTWRBkFGba1SYUWc4hZB4odRhOHC8EB8";
-let data = fetch(`https://api.notion.com/v1/databases/${doc_id}/query`, {
-	method: "post",
-	headers: {
-		Authorization: "Bearer " + api_key,
-		"Content-Type": "application/json",
-		"Notion-Version": "2022-06-28",
-	},
-});
 ---
 
 <PageLayout meta={meta}>
@@ -52,4 +43,5 @@ let data = fetch(`https://api.notion.com/v1/databases/${doc_id}/query`, {
 			</a> if you like me!
 		</p>
 	</div>
+	<CodeSnippet />
 </PageLayout>
