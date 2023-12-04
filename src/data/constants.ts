@@ -15,6 +15,10 @@ export const MENU_LINKS = [
 		title: "CV",
 		path: "/under",
 	},
+	{
+		title: "YouTube",
+		path: "/under",
+	},
 ];
 
 // ! Remember to add your own socials
