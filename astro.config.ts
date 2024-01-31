@@ -2,7 +2,6 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
-import prefetch from "@astrojs/prefetch";
 
 import partytown from "@astrojs/partytown";
 
@@ -20,13 +19,14 @@ export default defineConfig({
 		config: {
 			applyBaseStyles: false
 		}
-	}), sitemap(), prefetch(),
+	}), sitemap(),
 	partytown({
 		config: {
 			forward: ["dataLayer.push"]
 		},
 	}),
 	],
+	prefetch: true,
 	vite: {
 		optimizeDeps: {
 			exclude: ["@resvg/resvg-js"]

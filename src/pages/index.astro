@@ -4,9 +4,6 @@ import PageLayout from "@/layouts/Base";
 import PostPreview from "@/components/blog/PostPreview";
 import SocialList from "@/components/SocialList";
 import { sortMDByDate } from "@/utils";
-import SkillSection from "@/components/SkillSection";
-import Languages from "@/components/Languages";
-import CodeSnippet from "@/components/CodeSnippet";
 
 const MAX_POSTS = 10;
 const allPosts = await getCollection("post");
@@ -26,15 +23,15 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 				If you want to know more about me find <a class="cactus-link" href="/about">here</a>
 			</p>
 		</p>
-		<!-- <div>
-			Disclimer
-			<p>
+		<SocialList />
+		<div class="text-xs">
+			<div class="text-red-600 underline decoration-wavy underline-offset-2">Disclimer</div>
+			<p class="py-1">
 				The openion that are present is my personal opions. Most of the time it will be based of
 				some facts or experience but there is high chance it include false information please reach
 				me through any source mension below I will correct as soon as possible.
 			</p>
-		</div> -->
-		<SocialList />
+		</div>
 	</section>
 	<section aria-label="Blog post list" class="mt-16">
 		<h2 class="title mb-4 text-xl">Posts</h2>

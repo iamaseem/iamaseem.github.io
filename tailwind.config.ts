@@ -3,6 +3,15 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 import plugin from "tailwindcss/plugin";
 
 export default {
+	daisyui: {
+		themes: true,
+		darkTheme: "dark",
+		base: false,
+		style: true,
+		utils: true,
+		prefix: "dai-",
+		logs: true,
+	},
 	content: ["./src/**/*.{astro,html,js,jsx,md,svelte,ts,tsx,vue}"],
 	darkMode: "class",
 	corePlugins: {
@@ -106,6 +115,7 @@ export default {
 		},
 	},
 	plugins: [
+		require("daisyui"),
 		require("@tailwindcss/typography"),
 		require("@tailwindcss/aspect-ratio"),
 		plugin(function ({ addComponents }) {
