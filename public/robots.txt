@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://iamaseem.github.io/sitemap-index.xml
+Sitemap: https://iamaseem.pages.dev/sitemap-index.xml
