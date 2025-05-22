@@ -1,0 +1,33 @@
+---
+import Card from "./Card.astro";
+
+interface Project {
+    name: string;
+    description: string;
+    url: string;
+}
+
+interface GithubProject {
+    name: string;
+    description: string;
+    html_url: string;
+}
+
+
+const response = await fetch("https://api.github.com/search/repositories?q=user:iamaseem+Personal-Project+in:description")
+
+const githubData = await response.json();
+
+const projects = githubData.items.map((project: GithubProject) => {
+    return {
+        name: project.name,
+        description: project.description,
+        url: project.html_url,
+    }
+})
+---
+<div class="flex flex-wrap">
+{projects.map((project: Project) => {
+    return <Card title={project.name} description={project.description} link={project.url}/>
+})}
+</div>

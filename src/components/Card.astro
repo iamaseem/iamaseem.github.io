@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import GithubIcon from "../assets/svgs/github.svg";
+
+interface Props {
+	imageUlr?: string;
+	width?: number ;
+	height?: number;
+	title: string;
+	description: string;
+	link?: string;
+}
+
+const { imageUlr, width, height, description, title, link } = Astro.props;
+---
+
+<div class="dai-bg-base-100 dai-shadow-xl xs:w-full dai-card dai-image-full md:w-1/2 lg:w-1/2 m-1 flex-1">
+	{imageUlr && height && width &&
+		<figure>
+			<Image src={imageUlr} alt={title} width={height} height={width} />
+		</figure>
+	}
+	<div class="dai-card-body">
+		<h2 class="dai-card-title text-lg">{title}</h2>
+		<p class="text-xs">{description}</p>
+		{link && 
+	<a href={link} class="dai-link dai-link-primary" target="_blank"><GithubIcon /></a>
+	}
+	</div>
+	
+</div>

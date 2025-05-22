@@ -4,6 +4,8 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 
 import partytown from "@astrojs/partytown";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,18 +15,20 @@ export default defineConfig({
 		shikiConfig: {
 			theme: "dracula",
 			wrap: true
-		}
-	},
-	integrations: [mdx({}), tailwind({
-		config: {
-			applyBaseStyles: false
-		}
-	}), sitemap(),
-	partytown({
-		config: {
-			forward: ["dataLayer.push"]
 		},
-	}),
+		syntaxHighlight: "prism",
+		remarkPlugins: [remarkMath],
+		rehypePlugins: [rehypeKatex],
+	},
+	integrations: [
+		mdx({}),
+		tailwind({}),
+		sitemap(),
+		partytown({
+			config: {
+				forward: ["dataLayer.push"]
+			},
+		}),
 	],
 	prefetch: true,
 	vite: {
