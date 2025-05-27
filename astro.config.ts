@@ -6,6 +6,7 @@ import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
+import purgecss from 'astro-purgecss';
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,6 +25,7 @@ export default defineConfig({
 		mdx({}),
 		tailwind({}),
 		sitemap(),
+		purgecss(),
 		partytown({
 			config: {
 				forward: ["dataLayer.push"]
@@ -34,6 +36,6 @@ export default defineConfig({
 	vite: {
 		optimizeDeps: {
 			exclude: ["@resvg/resvg-js"]
-		}
+		},
 	}
 });
