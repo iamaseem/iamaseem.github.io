@@ -6,7 +6,7 @@ import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
-import purgecss from 'astro-purgecss';
+// import purgecss from 'astro-purgecss';
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,7 +25,7 @@ export default defineConfig({
 		mdx({}),
 		tailwind({}),
 		sitemap(),
-		purgecss(),
+		// purgecss(),
 		partytown({
 			config: {
 				forward: ["dataLayer.push"]

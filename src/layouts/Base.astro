@@ -18,7 +18,7 @@ const {
 <html lang={siteConfig.lang}>
 	<head>
 		<BaseHead title={title} description={description} ogImage={ogImage} articleDate={articleDate} />
-		<script define:vars={{ siteConfig }}>
+		<script define:vars={{ siteConfig }} is:inline>
 			const root = document.documentElement;
 			const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
 
@@ -51,9 +51,9 @@ const {
 			root.classList.toggle("dark", isDark);
 		</script>
 		<!-- Google Tag Manager -->
-		<script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-86V6TXV60L"
+		<script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-86V6TXV60L" is:inline
 		></script>
-		<script type="text/partytown">
+		<script type="text/partytown" is:inline>
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
 				dataLayer.push(arguments);
