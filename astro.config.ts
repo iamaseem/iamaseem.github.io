@@ -6,7 +6,7 @@ import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
-// import purgecss from 'astro-purgecss';
+import purgecss from 'astro-purgecss';
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,7 +25,16 @@ export default defineConfig({
 		mdx({}),
 		tailwind({}),
 		sitemap(),
-		// purgecss(),
+		purgecss({
+			safelist: ["font-['Nabla']"],
+			extractors: [
+				{
+					extractor: (content) =>
+						content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
+					extensions: ["astro", "html"],
+				},
+			],
+		}),
 		partytown({
 			config: {
 				forward: ["dataLayer.push"]
