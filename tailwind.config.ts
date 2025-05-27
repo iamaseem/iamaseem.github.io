@@ -39,7 +39,7 @@ export default {
 				// Add any custom fonts here
 				sans: [...fontFamily.sans],
 				serif: [...fontFamily.serif],
-				nabla: ["Nabla"],
+				// nabla: ["Nabla"],
 			},
 			transitionProperty: {
 				height: "height",

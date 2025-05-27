@@ -11,7 +11,7 @@ const url = new URL(Astro.request.url);
 	document.addEventListener("DOMContentLoaded", () => {
 		const header = document.getElementById("main-header") as HTMLElement;
 		const toggleMenuButton = document.getElementById(
-			"toggle-navigation-menu"
+			"toggle-navigation-menu",
 		) as HTMLButtonElement;
 		let menuOpen = false;
 
@@ -23,7 +23,10 @@ const url = new URL(Astro.request.url);
 	});
 </script>
 
-<header id="main-header" class="group relative mb-28 flex items-center sm:ps-[4.5rem]">
+<header
+	id="main-header"
+	class="group relative mb-28 flex items-center sm:ps-[4.5rem]"
+>
 	<div class="flex sm:flex-col">
 		<a
 			href="/"
@@ -48,9 +51,14 @@ const url = new URL(Astro.request.url);
 				<path
 					d="m136 53.333 45.333-26.666v120L226.667 120V80L272 53.333V160l-90.667 53.333v240L136 480V306.667L45.334 360V240l45.333-26.667v53.334L136 240V53.333Z"
 					fill="#53C68C"></path>
-				<path d="M45.334 240 0 213.334v120L45.334 360V240Z" fill="#B04304"></path>
+				<path
+					d="M45.334 240 0 213.334v120L45.334 360V240Z"
+					fill="#B04304"></path>
 			</svg>
-			<span class="font-nabla text-3xl font-bold sm:text-4xl md:text-5xl">AZM</span>
+			<span
+				class="font-['Nabla'] text-3xl font-bold sm:text-4xl md:text-5xl"
+				>AZM</span
+			>
 		</a>
 		<nav
 			id="navigation-menu"
@@ -62,7 +70,9 @@ const url = new URL(Astro.request.url);
 					<a
 						href={link.path}
 						class="px-4 py-4 sm:py-0 sm:hover:underline"
-						aria-current={url.pathname === link.path ? "page" : false}
+						aria-current={
+							url.pathname === link.path ? "page" : false
+						}
 						rel="prefetch"
 					>
 						{link.title}
@@ -91,8 +101,10 @@ const url = new URL(Astro.request.url);
 			stroke-width="1.5"
 			stroke="currentColor"
 		>
-			<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"
-			></path>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M3.75 9h16.5m-16.5 6.75h16.5"></path>
 		</svg>
 		<svg
 			id="cross-svg"
@@ -106,7 +118,10 @@ const url = new URL(Astro.request.url);
 			stroke-width="1.5"
 			stroke="currentColor"
 		>
-			<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M6 18L18 6M6 6l12 12"></path>
 		</svg>
 	</button>
 </header>

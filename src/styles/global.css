@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
+/* @import url('/fonts/nabla-latin-400-normal.woff'); */
 @tailwind base;
 
 @layer base {
@@ -30,6 +30,14 @@
 
 	html body {
 		@apply mx-auto flex h-full w-full max-w-3xl flex-col bg-bgColor px-8 pt-16 font-mono text-sm font-normal text-textColor antialiased;
+	}
+
+	@font-face {
+		font-family: 'Nabla';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url(/fonts/nabla-latin-400-normal.woff) format('woff');
 	}
 }
 
