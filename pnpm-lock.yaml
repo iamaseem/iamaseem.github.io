@@ -17,6 +17,9 @@ importers:
       '@astrojs/rss':
         specifier: ^4.0.11
         version: 4.0.11
+      '@kbyte-tech/astro-clarity':
+        specifier: ^0.0.8
+        version: 0.0.8(astro@5.7.13(@types/node@22.15.19)(jiti@1.21.7)(rollup@3.29.5)(typescript@5.8.3)(yaml@2.8.0))
       astro:
         specifier: ^5.7.13
         version: 5.7.13(@types/node@22.15.19)(jiti@1.21.7)(rollup@3.29.5)(typescript@5.8.3)(yaml@2.8.0)
@@ -578,6 +581,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@kbyte-tech/astro-clarity@0.0.8':
+    resolution: {integrity: sha512-gv614Ejw4LKakp+BjbLiWHsGpn6TP768SSTjr2fdU8k8jV05CjCFX0cbY9mWVrkcF8l33szNKjLfQ7QMeNnaWQ==}
+    peerDependencies:
+      astro: ^4.0.0 || ^5.0.0
 
   '@mdx-js/mdx@3.1.0':
     resolution: {integrity: sha512-/QxEhPAvGwbQmy1Px8F899L5Uc2KZ6JtXwlCgJmjSTBedwOZkByYcBG4GceIGPXRDsmfxhHazuS+hlOShRLeDw==}
@@ -4186,6 +4194,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@kbyte-tech/astro-clarity@0.0.8(astro@5.7.13(@types/node@22.15.19)(jiti@1.21.7)(rollup@3.29.5)(typescript@5.8.3)(yaml@2.8.0))':
+    dependencies:
+      astro: 5.7.13(@types/node@22.15.19)(jiti@1.21.7)(rollup@3.29.5)(typescript@5.8.3)(yaml@2.8.0)
 
   '@mdx-js/mdx@3.1.0(acorn@8.14.1)':
     dependencies:

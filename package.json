@@ -48,6 +48,7 @@
 		"@astrojs/check": "^0.9.4",
 		"@astrojs/partytown": "^2.1.4",
 		"@astrojs/rss": "^4.0.11",
+		"@kbyte-tech/astro-clarity": "^0.0.8",
 		"astro": "^5.7.13",
 		"astro-purgecss": "^5.2.2",
 		"purgecss": "^7.0.2",
