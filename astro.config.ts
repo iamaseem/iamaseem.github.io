@@ -7,7 +7,7 @@ import partytown from "@astrojs/partytown";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import purgecss from 'astro-purgecss';
-import clarity from "@kbyte-tech/astro-clarity";
+import clarityIntegration from "@kbyte-tech/astro-clarity";
 
 // https://astro.build/config
 export default defineConfig({
@@ -41,7 +41,7 @@ export default defineConfig({
 				forward: ["dataLayer.push"]
 			},
 		}),
-		clarity({
+		clarityIntegration({
 			enabled: true,
 			projectId: "sevjrf40fc",
 		})
