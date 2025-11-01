@@ -16,8 +16,12 @@ export const MENU_LINKS = [
 		path: "/projects",
 	},
 	{
+		title: "YouTube",
+		path: "/youtube",
+	},
+	{
 		title: "CV",
-		path: "/under",
+		path: "/cv",
 	},
 ];
 

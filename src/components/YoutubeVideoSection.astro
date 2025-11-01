@@ -1,0 +1,46 @@
+---
+import YoutubeVideoCard from "./YoutubeVideoCard.astro";
+import fetch from "node-fetch";
+
+const CHANNEL_ID = "UCtoAAjUtf6zg0Uro4i0Tapw";
+const API_KEY = "AIzaSyAejRzXYMe9gZxyqjK_sn15wmsCs7ldRvE";
+const MAX_RESULTS = 6;
+
+interface Video {
+  title: string;
+  thumbnail: string;
+  url: string;
+}
+
+let videos: Video[] = [];
+let error: string | null = null;
+
+try {
+  const response = await fetch(
+    `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}&type=video`
+  );
+
+  if (response.ok) {
+    const data:any = await response.json();
+    videos = data.items.map((item: any) => ({
+      title: item.snippet.title,
+      thumbnail: item.snippet.thumbnails.high.url,
+      url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
+    }));
+  } else {
+    error = `Error: ${response.status} ${response.statusText}`;
+    console.error(error);
+  }
+} catch (e: any) {
+  error = e.message;
+  console.error(error);
+}
+---
+
+{error && <p class="text-red-500">{error}</p>}
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+  {videos.map((video) => (
+    <YoutubeVideoCard {...video} />
+  ))}
+</div>
