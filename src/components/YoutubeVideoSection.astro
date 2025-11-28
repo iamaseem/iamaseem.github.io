@@ -3,7 +3,7 @@ import YoutubeVideoCard from "./YoutubeVideoCard.astro";
 import fetch from "node-fetch";
 
 const CHANNEL_ID = "UCtoAAjUtf6zg0Uro4i0Tapw";
-const API_KEY = "AIzaSyAejRzXYMe9gZxyqjK_sn15wmsCs7ldRvE";
+const API_KEY = import.meta.env.YOUTUBE_API_KEY;
 const MAX_RESULTS = 6;
 
 interface Video {
