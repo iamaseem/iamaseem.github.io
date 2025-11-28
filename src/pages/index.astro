@@ -13,7 +13,9 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 <PageLayout meta={{ title: "Home" }}>
 	<section>
 		<div class="group title inline-flex">
-			<h1 class="mb-6">Think. Build. Hack.</h1>
+			<h1 class="mb-6 overflow-hidden whitespace-nowrap border-r-4 border-accent-2 pr-1 animate-typing">
+				Think. Build. Hack.
+			</h1>
 			<span class="ml-1 group-hover:animate-wiggle">👋</span>
 		</div>
 		<p class="mb-4">
@@ -47,8 +49,11 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 		<h2 class="title mb-4 text-xl">Posts</h2>
 		<ul class="space-y-4 sm:space-y-2">
 			{
-				allPostsByDate.map((p) => (
-					<li class="flex flex-col gap-x-2 sm:flex-row">
+				allPostsByDate.map((p, index) => (
+					<li
+						class="flex flex-col gap-x-2 opacity-0 animate-fadeIn sm:flex-row"
+						style={{ animationDelay: `${index * 100}ms` }}
+					>
 						<PostPreview post={p} />
 					</li>
 				))

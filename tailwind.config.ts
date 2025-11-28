@@ -105,11 +105,24 @@ export default {
 			}),
 			animation: {
 				wiggle: "wiggle 500ms ease-in-out infinite",
+				typing: "typing 2s steps(20) forwards, blink .7s infinite",
+				fadeIn: "fadeIn 0.5s ease-out forwards",
 			},
 			keyframes: {
 				wiggle: {
 					"0%, 100%": { transform: "rotate(-5deg)" },
 					"50%": { transform: "rotate(5deg)" },
+				},
+				typing: {
+					from: { width: "0" },
+					to: { width: "100%" },
+				},
+				blink: {
+					"50%": { borderColor: "transparent" },
+				},
+				fadeIn: {
+					from: { opacity: "0", transform: "translateY(10px)" },
+					to: { opacity: "1", transform: "translateY(0)" },
 				},
 			},
 		},
