@@ -20,6 +20,10 @@ export const MENU_LINKS = [
 		path: "/youtube",
 	},
 	{
+		title: "Papers",
+		path: "/papers",
+	},
+	{
 		title: "CV",
 		path: "/cv",
 	},

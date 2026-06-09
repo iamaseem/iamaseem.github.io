@@ -1,4 +1,6 @@
-import { z, defineCollection } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
+import { glob } from "astro/loaders";
 
 function removeDupsAndLowerCase(array: string[]) {
 	if (!array.length) return array;
@@ -8,6 +10,7 @@ function removeDupsAndLowerCase(array: string[]) {
 }
 
 const post = defineCollection({
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/post" }),
 	schema: z.object({
 		title: z.string().max(60),
 		description: z.string().min(50).max(160),

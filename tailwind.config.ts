@@ -107,6 +107,7 @@ export default {
 				wiggle: "wiggle 500ms ease-in-out infinite",
 				typing: "typing 2s steps(20) forwards, blink .7s infinite",
 				fadeIn: "fadeIn 0.5s ease-out forwards",
+				"pulse-underline": "pulseUnderline 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
 			},
 			keyframes: {
 				wiggle: {
@@ -123,6 +124,10 @@ export default {
 				fadeIn: {
 					from: { opacity: "0", transform: "translateY(10px)" },
 					to: { opacity: "1", transform: "translateY(0)" },
+				},
+				pulseUnderline: {
+					"0%, 100%": { textDecorationColor: "rgb(220 38 38)" },
+					"50%": { textDecorationColor: "rgba(239, 68, 68, 0.2)" },
 				},
 			},
 		},

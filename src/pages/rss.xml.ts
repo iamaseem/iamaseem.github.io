@@ -13,7 +13,7 @@ export const GET = async (context: any) => {
 			title: post.data.title,
 			description: post.data.description,
 			pubDate: post.data.publishDate,
-			link: `${context.site}posts/${post.slug}`,
+			link: `${context.site}posts/${post.id}`,
 		})),
 	});
 };

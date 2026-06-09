@@ -1,0 +1,168 @@
+---
+import PageLayout from "@/layouts/Base";
+import { PAPERS } from "@/data/papers";
+
+const meta = {
+	title: "My Research Papers",
+	description: "A collection of my research papers and publications.",
+};
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-6">Research Papers</h1>
+
+	<div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+		<div class="flex items-center gap-2">
+			<label for="filter-type" class="text-sm font-medium">Filter:</label>
+			<select
+				id="filter-type"
+				class="rounded-md border border-gray-300 bg-bgColor px-3 py-1.5 text-sm outline-none focus:border-accent dark:border-gray-700"
+			>
+				<option value="All">All Papers</option>
+				<option value="Mine">My Papers</option>
+				<option value="External">External Papers</option>
+			</select>
+		</div>
+		<div class="flex items-center gap-2">
+			<label for="sort-date" class="text-sm font-medium">Sort by Date:</label>
+			<select
+				id="sort-date"
+				class="rounded-md border border-gray-300 bg-bgColor px-3 py-1.5 text-sm outline-none focus:border-accent dark:border-gray-700"
+			>
+				<option value="desc">Newest First</option>
+				<option value="asc">Oldest First</option>
+			</select>
+		</div>
+	</div>
+
+	<div id="papers-grid" class="grid gap-4 sm:grid-cols-2">
+		{
+			PAPERS.map((paper) => (
+				<div
+					class="paper-card flex flex-col justify-between rounded-lg border border-gray-200 p-4 shadow-sm transition-shadow hover:shadow-md dark:border-gray-700"
+					data-type={paper.type}
+					data-date={paper.publishedAt}
+				>
+					<div>
+						<div class="mb-2 flex items-start justify-between gap-2">
+							<h2 class="text-xl font-semibold text-accent-2">{paper.title}</h2>
+							<span
+								class={`whitespace-nowrap rounded-full px-2 py-1 text-xs font-medium ${paper.type === "Mine" ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200" : "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"}`}
+							>
+								{paper.type}
+							</span>
+						</div>
+						<p class="mb-4 text-sm text-gray-600 dark:text-gray-400">{paper.description}</p>
+						<p class="mb-4 text-xs text-gray-500">Published: {paper.publishedAt}</p>
+					</div>
+					<div class="mt-auto flex flex-wrap items-center justify-between gap-2">
+						<div class="flex gap-2">
+							<a
+								href={paper.downloadLink}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="hover:bg-accent/90 inline-flex items-center justify-center rounded-md bg-accent px-3 py-1.5 text-sm font-medium text-bgColor transition-colors"
+							>
+								Download
+							</a>
+							{paper.previewLink && (
+								<button
+									data-preview-link={paper.previewLink}
+									class="preview-btn hover:bg-accent/10 inline-flex items-center justify-center rounded-md border border-accent px-3 py-1.5 text-sm font-medium text-accent transition-colors"
+								>
+									Preview
+								</button>
+							)}
+						</div>
+						{paper.originalLink && (
+							<a
+								href={paper.originalLink}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="cactus-link whitespace-nowrap text-sm"
+							>
+								Original Link ↗
+							</a>
+						)}
+					</div>
+				</div>
+			))
+		}
+	</div>
+
+	<dialog id="preview-modal" class="modal">
+		<div
+			class="modal-box relative h-[90vh] w-[98vw] max-w-none overflow-hidden rounded-lg bg-white p-0 shadow-xl dark:bg-gray-800"
+		>
+			<form method="dialog">
+				<button
+					class="btn btn-circle btn-ghost btn-sm absolute right-2 top-2 z-10 bg-white/50 text-black hover:bg-white/80"
+					>✕</button
+				>
+			</form>
+			<iframe id="preview-frame" src="" class="h-full w-full border-0"></iframe>
+		</div>
+		<form method="dialog" class="modal-backdrop">
+			<button>close</button>
+		</form>
+	</dialog>
+
+	<script>
+		const modal = document.getElementById("preview-modal") as HTMLDialogElement;
+		const frame = document.getElementById("preview-frame") as HTMLIFrameElement;
+		const buttons = document.querySelectorAll(".preview-btn");
+
+		buttons.forEach((btn) => {
+			btn.addEventListener("click", () => {
+				const link = btn.getAttribute("data-preview-link");
+				if (link && frame && modal) {
+					frame.src = link;
+					modal.showModal();
+				}
+			});
+		});
+
+		// Clear src when closed to stop video/audio if any
+		modal?.addEventListener("close", () => {
+			if (frame) frame.src = "";
+		});
+
+		// Filter and Sort Logic
+		const filterType = document.getElementById("filter-type") as HTMLSelectElement;
+		const sortDate = document.getElementById("sort-date") as HTMLSelectElement;
+		const grid = document.getElementById("papers-grid");
+		const cards = Array.from(document.querySelectorAll(".paper-card")) as HTMLElement[];
+
+		function updateGrid() {
+			if (!grid) return;
+			const typeVal = filterType.value;
+			const sortVal = sortDate.value;
+
+			// Filter
+			const filteredCards = cards.filter((card) => {
+				const cardType = card.getAttribute("data-type");
+				if (typeVal === "All") return true;
+				return cardType === typeVal;
+			});
+
+			// Sort
+			filteredCards.sort((a, b) => {
+				const dateA = new Date(a.getAttribute("data-date") || "").getTime();
+				const dateB = new Date(b.getAttribute("data-date") || "").getTime();
+				return sortVal === "desc" ? dateB - dateA : dateA - dateB;
+			});
+
+			// Re-append to grid
+			grid.innerHTML = "";
+			filteredCards.forEach((card) => grid.appendChild(card));
+		}
+
+		if (filterType && sortDate) {
+			filterType.addEventListener("change", updateGrid);
+			sortDate.addEventListener("change", updateGrid);
+
+			// Initial sort
+			updateGrid();
+		}
+	</script>
+</PageLayout>
